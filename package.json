@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "cz"
+    "commit": "cz",
+    "start:dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.4.0",
     "eslint-plugin-promise": "^6.1.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.8.4"
   },
   "config": {
@@ -37,6 +39,8 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "socket.io": "^4.5.3"
+    "reflect-metadata": "^0.1.13",
+    "socket.io": "^4.5.3",
+    "typeorm": "^0.3.10"
   }
 }
