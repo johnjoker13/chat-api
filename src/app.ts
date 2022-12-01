@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import 'reflect-metadata';
 import express, { Router } from 'express';
-import { config as DataSource } from './config/app-data-source';
+import { config as DataSource } from './database/config/app-data-source';
 
 export class App {
   private _app: express.Application;
