@@ -1,13 +1,17 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { v4 as uuidv4 } from 'uuid';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
-  public readonly id: string;
+  @PrimaryColumn()
+  public readonly id: string = uuidv4();
 
-  @Column({ length: 50 })
-  name: string;
+  @Column()
+  email: string;
 
-  @Column({ length: 50 })
-  lastName: string;
+  @Column()
+  password: string;
+
+  @Column({ length: 100 })
+  nickname: string;
 }
