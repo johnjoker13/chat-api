@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import 'reflect-metadata';
 import express, { Router } from 'express';
+import { config as DataSource } from './config/app-data-source';
 
 export class App {
   private _app: express.Application;
@@ -9,8 +11,14 @@ export class App {
     this._app.use(express.json());
   }
 
-  public startServer(): void {
-    this._app.listen(3001);
+  public startServer(PORT: number): void {
+    this._app.listen(PORT);
+  }
+
+  public initDataBase(): void {
+    DataSource.initialize()
+      .then(() => console.log('Data source has been initialized'))
+      .catch((err: Error) => console.log('Error during Data Source initialization:', err));
   }
 
   public addRouter(router: Router): void {
